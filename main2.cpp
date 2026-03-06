@@ -38,7 +38,7 @@ int check(char *st) {
 int main(int argc, char **argv){
   for (int i = 1; i < argc; i++) {
     int isvalid = check(argv[i]);
-    printf("argv %d ");
+    printf("argv %d ", i);
     if (isvalid == 0) {
       printf("incorrect\n");
     } else if (isvalid == 1) {
