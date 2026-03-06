@@ -44,7 +44,7 @@ int main(int argc, char **argv){
     } else if (isvalid == 1) {
       printf("correct\n");
     } else if (isvalid == 2) {
-      printf("too many open parentheses\n");
+      printf("incorrect too many open parentheses\n");
     }
   }
   
