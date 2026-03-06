@@ -6,7 +6,7 @@ using namespace std;
 
 #include "stack.h"
 
-bool check(char *st) {
+int check(char *st) {
   Stack s;
   int k = 0;
   bool isvalid = true;
@@ -30,15 +30,22 @@ bool check(char *st) {
   }
   int size = s.get_size();
   if (size != 0) {
-    isvalid = false;
+    return 2;
   }
-  return isvalid;
+  return isvalid ? 1 : 0;
 }
 
 int main(int argc, char **argv){
   for (int i = 1; i < argc; i++) {
-    bool isvalid = check(argv[i]);
-    printf("argv %d %s\n", i, isvalid ? "correct" : "incorrect");
+    int isvalid = check(argv[i]);
+    printf("argv %d ");
+    if (isvalid == 0) {
+      printf("incorrect\n");
+    } else if (isvalid == 1) {
+      printf("correct\n");
+    } else if (isvalid == 2) {
+      printf("too many open parentheses\n");
+    }
   }
   
   return 0;
