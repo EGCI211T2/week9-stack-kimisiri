@@ -1,29 +1,45 @@
-#include<iostream>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+
 using namespace std;
 
 #include "stack.h"
 
-int main(int argc, char **argv){
-    Stack s;
-   
-/*
-  Exercise 2
- printf("Checking the parentheses in argv arguments\n");
+bool check(char *st) {
+  Stack s;
+  int k = 0;
+  bool isvalid = true;
+  while (st[k] && isvalid) {
+    char c = st[k];
+    if (c == '(' || c == '{' || c == '[') {
+      s.push(c);
+    } else {
+      char k = s.pop();
+      if (
+        c == ')' && k != '(' ||
+        c == '}' && k != '{' ||
+        c == ']' && k != '['
+      ) {
+        isvalid = false;
+        break;
+      }
+    }
 
-   */
-
-    /*
-     for(j=0;j<strlen(argv[i]);j++){
-       // Use stack to help with the parentheses
-
-
-
-
-
+    k++;
   }
+  int size = s.get_size();
+  if (size != 0) {
+    isvalid = false;
+  }
+  return isvalid;
+}
 
-  */
-
-
-   return 0;
+int main(int argc, char **argv){
+  for (int i = 1; i < argc; i++) {
+    bool isvalid = check(argv[i]);
+    printf("argv %d %s\n", i, isvalid ? "correct" : "incorrect");
+  }
+  
+  return 0;
 }

@@ -1,3 +1,5 @@
+d=stack2
+
 compile: main.cpp
 	g++ main.cpp -o stack1
 
@@ -7,20 +9,20 @@ run: ./stack1
 compile2: main2.cpp
 	g++ main2.cpp -o stack2
 
-test1: ./stack2
-	./stack2 {[]}[] {[]] [] {{  }}
+test1: ./$(d)
+	./$(d) {[]}[] {[]] [] {{  }}
 
-test2: ./stack2
-	./stack2 {[]}[]
+test2: ./$(d)
+	./$(d) {[]}[]
 
-test3: ./stack2
-	./stack2 {[]
+test3: ./$(d)
+	./$(d) {[]
 
-test4: ./stack2
-	./stack2 {[}]
+test4: ./$(d)
+	./$(d) {[}]
 
-test5: ./stack2
-	./stack2 {{
+test5: ./$(d)
+	./$(d) {{
 
-test6: ./stack2
-	./stack2 {{}}
+test6: ./$(d)
+	./$(d) {{}}
